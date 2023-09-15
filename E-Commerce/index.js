@@ -3,26 +3,28 @@ const { typeDefs } = require("./schema");
 const { Category } = require("./resolvers/Category");
 const { Query } = require("./resolvers/query")
 const { Product } = require("./resolvers/Product")
-const { products, categories, reviews } = require("./db");
+const { Mutation } = require("./resolvers/Mutation")
+const { db } = require("./db");
 
 
-// filtering the products based on the category (one category has many products => one to many relation )
+// 1. filtering the products based on the category (one category has many products => one to many relation )
 
-// filtering the categories based on products (each product belongs to one category)
+// 2. filtering the categories based on products (each product belongs to one category)
 
-// filtering the products and categories based on the onSale
+// 3. filtering the products and categories based on the onSale
+
+// 4. mutations (adding, deleting and updating)
 
 const server = new ApolloServer({
     typeDefs,
     resolvers: {
         Query,
         Category,
-        Product
+        Product,
+        Mutation
     },
     context: {
-        products,
-        categories,
-        reviews
+        db
     }
 });
 
