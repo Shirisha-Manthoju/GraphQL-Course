@@ -10,6 +10,8 @@ const { products, categories, reviews } = require("./db");
 
 // filtering the categories based on products (each product belongs to one category)
 
+// filtering the products and categories based on the onSale
+
 const server = new ApolloServer({
     typeDefs,
     resolvers: {
