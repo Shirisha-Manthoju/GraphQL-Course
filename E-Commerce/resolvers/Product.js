@@ -1,8 +1,8 @@
 exports.Product = {
-    category: ({ categoryId }, args, { categories }) => {
-        return categories.find((item) => item.id === categoryId)
+    category: ({ categoryId }, args, { db }) => {
+        return db.categories.find((item) => item.id === categoryId)
     },
-    reviews: ({ id }, args, { reviews }) => {
-        return reviews.filter((item) => item.productId === id)
+    reviews: ({ id }, args, { db }) => {
+        return db.reviews.filter((item) => item.productId === id)
     }
 }
